@@ -3,35 +3,33 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Initialize the Chrome webdriver
-driver = webdriver.Chrome()
+chrome_driver_path = "C:\Windows\System32\chromedriver-win64\chromedriver.exe"
 
-# Open the website
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = "C:\Program Files\Google\Chrome\Application\chrome.exe"  # Specify path to Chrome binary if needed
+chrome_options.add_argument(f"webdriver.chrome.driver={chrome_driver_path}")
+
+driver = webdriver.Chrome(options=chrome_options)
+
 driver.get("https://thinking-tester-contact-list.herokuapp.com/")
 
 try:
-    # Find the username and password input fields and enter values
-    username_field = driver.find_element_by_id("email")
-    password_field = driver.find_element_by_id("password")
+    username_field = driver.find_element(By.ID, "email")
+    password_field = driver.find_element(By.ID, "password")
     username_field.send_keys("vamsikana1@gmail.com")
     password_field.send_keys("oggy123456")
 
-    # Find the login button by its ID and click it
-    login_button = driver.find_element_by_id("submit")
+    login_button = driver.find_element(By.ID, "submit")
     login_button.click()
 
-    # Wait for the welcome message to be visible after login
     WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.ID, "welcome-message"))
+        EC.visibility_of_element_located((By.ID, "add-contact"))
     )
 
-    # If the element is found, print a success message
     print("Test Passed: Login successful!")
 
 except Exception as e:
-    # If any exception occurs or the element is not found, print an error message
     print("Test Failed: ", e)
 
 finally:
-    # Close the browser window
     driver.quit()

@@ -1,3 +1,4 @@
+from PIL import Image
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -25,6 +26,10 @@ try:
     WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.ID, "add-contact"))
     )
+    screenshot = Image.open("add_contact_button.png")
+
+    # Display the screenshot
+    screenshot.show()
 
     print("Test Passed: Login successful!")
 

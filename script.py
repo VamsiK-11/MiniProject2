@@ -39,12 +39,12 @@ try:
     phone_field = driver.find_element(By.ID, "phone")
     address_field = driver.find_element(By.ID, "street1")
 
-    name_field.send_keys("Glenn")
-    name2_field.send_keys("Phillips")
-    email_field.send_keys("phillips23@gmail.com")
-    dob_field.send_keys("1996-12-06")
-    phone_field.send_keys("8945612379")
-    address_field.send_keys("Auckland,New Zealand")
+    name_field.send_keys("Kukatpally")
+    name2_field.send_keys("Klassen")
+    email_field.send_keys("Klassen45@gmail.com")
+    dob_field.send_keys("1991-07-06")
+    phone_field.send_keys("9663736891")
+    address_field.send_keys("Perth,South Africa")
 
     submit_button = driver.find_element(By.ID, "submit")
     submit_button.click()

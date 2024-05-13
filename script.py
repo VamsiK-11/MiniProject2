@@ -4,9 +4,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-chrome_driver_path = "C:\Windows\System32\chromedriver-win64\chromedriver.exe"
+chrome_driver_path = r"C:\Windows\System32\chromedriver-win64\chromedriver.exe"
 chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = "C:\Program Files\Google\Chrome\Application\chrome.exe"  # Specify path to Chrome binary if needed
+chrome_options.binary_location = r"C:\Program Files\Google\Chrome\Application\chrome.exe"  # Specify path to Chrome binary if needed
 chrome_options.add_argument(f"webdriver.chrome.driver={chrome_driver_path}")
 driver = webdriver.Chrome(options=chrome_options)
 
